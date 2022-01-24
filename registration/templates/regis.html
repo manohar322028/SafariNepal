@@ -1,0 +1,11 @@
+
+ <div class="title"><span>REGISTER FORM</span></div>
+    
+<form method="POST" action=''>
+      {% csrf_token %}
+      {{form.as_p}}
+       {{p_form.as_p}}
+      <button type='submit' value="submit" >submit</button>
+  </form>
+
+ 
