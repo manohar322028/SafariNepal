@@ -11,18 +11,18 @@
   </head>
   <body>
     <header>
-      <span class="image-clickable">
+      <span class="image-clickable" enctype="">
         
           <img src="logo.png" class="logo" />
     
       </span>
       <nav>
         <ul class="nav-links">
-          <li><a href="#">Profile</a></li>
+          <li><a href="{% url 'profile' %}">Profile</a></li>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Contact Us</a></li>
           <li><a href="#">About</a></li>
-          <li><a href="#">Log out</a></li>
+          <li><a href="{% url 'login' %}">Log out</a></li>
 
         </ul>
     </header>

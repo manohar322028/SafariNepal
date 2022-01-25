@@ -1,0 +1,13 @@
+
+ <div class="title"><span>REGISTER FORM</span></div>
+    
+<form method="POST" action='' enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form}}
+      {{p_form}}
+      <img src="{{request.user.profile.profile_pic.url}}">
+      {{pf_form}}
+      <button type='submit' value="submit" >submit</button>
+  </form>
+
+ 

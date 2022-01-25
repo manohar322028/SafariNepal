@@ -14,15 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from atexit import register
+from xml.dom.minidom import Document
 from django.contrib import admin
 from django.urls import path
-from login.views import loginpage
-from registration.views import profilepage,registerpage
+from login.views import loginpage,logoutpage
+from registration.views import profilepage,registerpage,accountsetting
 from destination.views import destination_view
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('075bct/', admin.site.urls),
     path('login/',loginpage,name='login'),
-    path('register/', profilepage),
+    path('register/', profilepage,name='profile'),
     path('registerpage/', registerpage,name="registerpage"),
     path('destination/', destination_view,name='destination'),
+    path('logout/', destination_view,name='logout'),
+    path('ac/',accountsetting,name='as')
 ]
+urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
