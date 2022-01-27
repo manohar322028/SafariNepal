@@ -9,7 +9,7 @@ class rating(models.Model):
     rate=models.IntegerField(choices=[(1,1),(2,2),(3,3),(4,4),(5,5)]) 
 =======
 
-# Create your models here.
+
 
 >>>>>>> 88568b2e8158db3f4589c9e947c9dc42697f221d
    
