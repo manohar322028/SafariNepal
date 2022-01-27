@@ -29,7 +29,7 @@ def accountsetting(request):
            profile_form.save()
            return redirect('destination')
     else:
-        form=userupdateform(instance=request.user)
+        form=userupdateform()
         profile_form=profileform()
     return render(request, 'preferencesinfo.html',{'f':form,'p':profile_form})    
 

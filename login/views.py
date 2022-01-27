@@ -15,7 +15,7 @@ def loginpage(request):
          user=authenticate(request,username=un,password=pwd)
          if user is not None:
             login(request,user)
-            return redirect('destination')
+            return redirect('')
 
     else:
         login_form=loginform()
