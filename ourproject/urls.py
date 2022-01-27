@@ -16,7 +16,7 @@ Including another URLconf
 from atexit import register
 from xml.dom.minidom import Document
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from login.views import loginpage,logoutpage
 from registration.views import profilepage,registerpage,accountsetting
 from destination.views import destination_view
@@ -29,6 +29,7 @@ urlpatterns = [
     path('registerpage/', registerpage,name="registerpage"),
     path('destination/', destination_view,name='destination'),
     path('logout/', destination_view,name='logout'),
-    path('ac/',accountsetting,name='as')
+    path('ac/',accountsetting,name='as'),
+    path('',include('home.urls'))
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

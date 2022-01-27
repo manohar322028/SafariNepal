@@ -12,7 +12,7 @@ class UsercreateForm(UserCreationForm):
 class profileform(ModelForm):
     class Meta:
         model= Profile
-        fields= ['middle_name','sex','age','phone_number','nationality','profile_pic']
+        fields= ['middle_name','sex','age','phone_number','nationality','profile_pic','preference']
 
 class userupdateform(ModelForm):
     class Meta:
@@ -20,7 +20,7 @@ class userupdateform(ModelForm):
         fields= ['username','email','first_name','last_name']
 
 class preferenceform(forms.Form):
-    Choice=[('yes','yes'),('no','no')]
+    Choice=[(0,0),(1,1),(2,2),(3,3),(4,4),(5,5)]
     culture=forms.ChoiceField(choices=Choice,widget=forms.RadioSelect)
     adventure=forms.ChoiceField(choices=Choice,widget=forms.RadioSelect)
     wildlife=forms.ChoiceField(choices=Choice,widget=forms.RadioSelect)
