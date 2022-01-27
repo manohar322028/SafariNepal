@@ -10,11 +10,13 @@ from django.utils import timezone
    
 
 class Places(models.Model):
+    id = models.IntegerField(primary_key=True)
     name=models.CharField(max_length=30,null=True,blank=True)
+    pro = models.IntegerField()
     address=models.CharField(max_length=30)
     descrption=models.TextField()
     thumbnail_image=models.ImageField(upload_to="images",null=True,blank=True)
-    ratings=models.ManyToManyField(User)
+    
 
     def __str__(self):
         return self.name
