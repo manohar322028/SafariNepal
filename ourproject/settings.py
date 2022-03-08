@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-xaphzufi@a#lnre-+e+4h6g!yttccis%45lnn=@_z8qa*msohc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'login','registration','destination',
     'ratinghome','blog',
     'main',
-    'django_extensions','crispy_forms','recommender',
+    'django_extensions','recommender',
     
 ]
 
