@@ -1,9 +1,14 @@
 from django import forms
 from django.forms import ModelForm
-from .models import blog,blogimages
+from .models import Blog, Blogimages
 
-class blogcreateform(ModelForm):
+class blogviewform(ModelForm):
     class Meta:
-        model= blog
-        fields=['title','description']         
+        model= Blog
+        fields=['title','description','author']         
 
+
+class createblogpostform(ModelForm):
+    class Meta:
+        model=Blog
+        fields=['title','thumbnail']

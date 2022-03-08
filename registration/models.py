@@ -3,25 +3,37 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-class preferences(models.Model):
-    Choices=[(0,0),(1,1),(2,2),(3,3),(4,4),(5,5)]
-    culture=models.IntegerField(choices=Choices,default=0)
-    wildlife=models.IntegerField(choices=Choices,default=0)
-    adventure=models.IntegerField(choices=Choices,default=0)
-    sightseeing=models.IntegerField(choices=Choices,default=0)
-    history=models.IntegerField(choices=Choices,default=0)
+import os
 
+class Preferences(models.Model):
+    
+    culture=models.BooleanField(default=False)
+    wildlife=models.BooleanField(default=False)
+    adventure=models.BooleanField(default=False)
+    sightseeing=models.BooleanField(default=False)
+    history=models.BooleanField(default=False)
+    religious = models.BooleanField(default=False)
+    child_friendly = models.BooleanField(default=False)
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
+
+def content_file_name(instance, filename):
+        ext = filename.split('.')[-1]
+        filename = "%s_%s.%s" % (instance.user.username, 'profilepic', ext)
+        return os.path.join('profileimages', filename)
 
 class Profile(models.Model):
     middle_name= models.CharField(max_length=20,null=True,blank=True)
     sex=models.CharField(max_length=10,choices=[('MALE','MALE'),('FEMALE','FEMALE')])
-    age=models.IntegerField(null=True,blank=True)
-    phone_number=models.CharField(max_length=15,null=True,blank=True)
-    nationality=models.CharField(max_length=20,null=True,blank=True)
+    age=models.IntegerField(null=False,blank=False)
+    phone_number=models.CharField(max_length=15, blank=False, null = False)
+    nationality=models.CharField(max_length=20,null=False,blank=False)
     user= models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic=models.ImageField(upload_to='profileimages',null=True,blank=True)
-    preference=models.OneToOneField(preferences,on_delete=models.CASCADE,null=True,blank=True)
-
+    profile_pic=models.ImageField(default = 'defaultpp.jpg', upload_to=content_file_name)
+    
     def __str__(self):
         return self.user.username
+    
     

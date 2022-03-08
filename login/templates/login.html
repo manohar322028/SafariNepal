@@ -9,19 +9,23 @@
 
 
 	<style>
-		body,
+	
 		html {
 			margin: 0;
 			padding: 0;
 			height: 100%;
-			background: #7abecc !important;
+			background: url(/media/login_signup/login-signup.jpg);
+			background-repeat:no-repeat;
+			background-size:cover;
+
 		}
 		.user_card {
-			width: 350px;
-			margin-top: auto;
+			width: 400px;
+			height:400px;
+			margin-top: 150px;
 			margin-bottom: auto;
 			background: #74cfbf;
-			position: relative;
+			position: fixed;
 			display: flex;
 			justify-content: center;
 			flex-direction: column;
@@ -30,14 +34,11 @@
 			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			border-radius: 5px;
+		}
 
-		}
-		.alert
-		{
-			text-align: center;
-		}
 		.form_container {
 			margin-top: 20px;
+			
 		}
 
 		#form-title{
@@ -56,6 +57,7 @@
 		}
 		.login_container {
 			padding: 0 2rem;
+			opacity:80%;
 		}
 		.input-group-text {
 			background: #f7ba5b !important;
@@ -75,6 +77,10 @@
 			padding: 10px;
 			margin-top: 10px;
 		}
+		.alert
+		{
+			text-align: center;
+		}
 	</style>
 
 </head>
@@ -91,14 +97,16 @@
 
 		{% for message in messages %}
 
-		<div class="alert alert-success alert-dismissible fade show">
+		<div class="alert alert-{{message.tags}} alert-dismissible fade show">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
-			<strong>Warning!</strong> {{message}}
+			{{message}}
 		  </div>
 
 		{% endfor %}
 
 	{% endif %}
+	
+
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -139,5 +147,8 @@
 		</div>
 	</div>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
+

@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import rateinfo
+from .models import Rateinfo
 # Register your models here.
-admin.site.register(rateinfo)
+admin.site.register(Rateinfo)
+
