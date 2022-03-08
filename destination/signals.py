@@ -24,7 +24,7 @@ def auto_delete_image_on_delete(sender, instance, **kwargs):
     Deletes file from filesystem
     when corresponding `MediaFile` object is deleted.
     """
-    if (instance.image)=='thumbnail_default.jpg':
+    if (instance.image.path)=='thumbnail_default.jpg':
             return False
     if instance.image:
         if os.path.isfile(instance.image.path):
@@ -59,7 +59,7 @@ def auto_delete_image_on_delete(sender, instance, **kwargs):
     Deletes file from filesystem
     when corresponding `MediaFile` object is deleted.
     """
-    if (instance.thumbnail_image)=='thumbnail_default.jpg':
+    if (instance.thumbnail_image.path)=='thumbnail_default.jpg':
             return False
     if instance.thumbnail_image:
         if os.path.isfile(instance.thumbnail_image.path):
