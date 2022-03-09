@@ -16,6 +16,7 @@ def auto_delete_image_on_delete(sender, instance, **kwargs):
         if os.path.isfile(instance.profile_pic.path):
             os.remove(instance.profile_pic.path)
 
+
 @receiver(pre_save, sender=Profile)
 def auto_delete_image_on_change(sender, instance, **kwargs):
    
@@ -24,14 +25,15 @@ def auto_delete_image_on_change(sender, instance, **kwargs):
 
     try:
         old_file = Profile.objects.get(pk=instance.pk).profile_pic
-        if (old_file.path.split('/')[-1])=='defaultpp.jpg':
-            return False
+        
     except Profile.DoesNotExist:
         return False
-
+  
+    if (old_file.path.split('/')[-1])=='defaultpp.jpg':
+            return False
     new_file = instance.profile_pic
     if not old_file == new_file:
         if os.path.isfile(old_file.path):
             os.remove(old_file.path)
 
-            
+     

@@ -42,11 +42,12 @@ def auto_delete_image_on_change(sender, instance, **kwargs):
 
     try:
         old_file = Destimages.objects.get(pk=instance.pk).image
-        if (old_file.path.split('/')[-1])=='thumbnail_default.jpg':
-            return False
+       
     except Destimages.DoesNotExist:
         return False
-
+    
+    if (old_file.path.split('/')[-1])=='thumbnail_default.jpg':
+        return False
     new_file = instance.image
     if not old_file == new_file:
         if os.path.isfile(old_file.path):
@@ -77,11 +78,11 @@ def auto_delete_image_on_change(sender, instance, **kwargs):
 
     try:
         old_file = Places.objects.get(pk=instance.pk).thumbnail_image
-        if (old_file.path.split('/')[-1])=='thumbnail_default.jpg':
-            return False
+       
     except Places.DoesNotExist:
         return False
-
+    if (old_file.path.split('/')[-1])=='thumbnail_default.jpg':
+        return False
     new_file = instance.thumbnail_image 
     if not old_file == new_file:
         if os.path.isfile(old_file.path):

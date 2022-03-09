@@ -242,19 +242,21 @@ label {
         <div class="events-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper" >
   
-  
+  {% if data.destimages_set.all %}
            
   {% for imag in data.destimages_set.all %} 
   
   <div class="swiper-slide">
     <div class="row event-item">
-      <a href="{{imag.image.url}}" class="gallery-lightbox" data-gall="gallery-item">
+     
         <img src="{{imag.image.url}}" class="img-fluid" alt="">
-      </a>
+      
     </div>
   </div>
   
   {% endfor %}
+
+  {% endif %}
 </div>
 <div class="swiper-pagination"></div>
 </div>

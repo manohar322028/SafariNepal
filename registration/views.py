@@ -20,12 +20,15 @@ def profile_editpage(request):
         profile_form=profileform(request.POST,request.FILES,instance=request.user.profile)
         
         img =  request.FILES.get('pp')
-       
+        
+
         
         if user_form.is_valid() and profile_form.is_valid():
-            post = Profile.objects.get(user=request.user)
-            post.profile_pic = img 
-            post.save()
+            
+            if img is not None:
+                post = Profile.objects.get(user=request.user)
+                post.profile_pic = img 
+                post.save()
             user_form.save()
             profile_form.save() 
             
