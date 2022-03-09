@@ -7,8 +7,11 @@ class PlaceAdmin(admin.ModelAdmin):
 class mfadmin(admin.ModelAdmin):
     search_fields = ['place__name', 'user__username']
 
+class placeratesearch(admin.ModelAdmin):
+    search_fields = ['user__username']
+
 admin.site.register(Places,PlaceAdmin)
-admin.site.register(Place_rating)
+admin.site.register(Place_rating, placeratesearch)
 admin.site.register(Destimages)
 admin.site.register(Hotel)
 admin.site.register(Comment)

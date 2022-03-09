@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xaphzufi@a#lnre-+e+4h6g!yttccis%45lnn=@_z8qa*msohc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 
 ALLOWED_HOSTS = ['safarinepal.cf','www.safarinepal.cf']
 
