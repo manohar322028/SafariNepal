@@ -26,7 +26,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('075bct/', admin.site.urls),
-    path('',include('login.urls')),
+    path('',loginpage,name='login'),
     
     path('registerpage/', registerpage,name="registerpage"),
     
