@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xaphzufi@a#lnre-+e+4h6g!yttccis%45lnn=@_z8qa*msohc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = True 
 
-ALLOWED_HOSTS = ['safarinepal.cf','www.safarinepal.cf']
+ALLOWED_HOSTS = ['127.0.0.1' ,'safarinepal.cf','www.safarinepal.cf']
 
 
 # Application definition
@@ -133,7 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT=os.path.join(BASE_DIR,"static")
+# STATIC_ROOT=os.path.join(BASE_DIR,"static")
 
 MEDIA_URL = '/media/'
 
@@ -142,26 +142,26 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# STATICFILES_DIRS = [
-# os.path.join(BASE_DIR, 'static')
-# ]
+STATICFILES_DIRS = [
+os.path.join(BASE_DIR, 'static')
+]
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 LOGIN_URL = 'login'
 
-#CELERY SETTINGS
-CELERY_BROKER_URL='redis://127.0.0.1:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_RESULT_SERIALIZER ='json'
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Kathmandu'
+# #CELERY SETTINGS
+# CELERY_BROKER_URL='redis://127.0.0.1:6379'
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_RESULT_SERIALIZER ='json'
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_TIMEZONE = 'Asia/Kathmandu'
 
-#HTTPS Settings
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+# #HTTPS Settings
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
 
-#HSTS Settings
-SECURE_HSTS_SECONDS = 31536000 #1 year
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# #HSTS Settings
+# SECURE_HSTS_SECONDS = 31536000 #1 year
+# SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
